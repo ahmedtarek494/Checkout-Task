@@ -1,0 +1,89 @@
+{
+	"info": {
+		"_postman_id": "fc4853db-f62b-4dc9-a4ef-006b73b6921f",
+		"name": "task",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "12622614"
+	},
+	"item": [
+		{
+			"name": "Checkout",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "[\r\n    {\r\n    \"productId\":1,\r\n    \"productName\":\"laptop\",\r\n    \"price\":50,\r\n    \"availability\":true\r\n\r\n},\r\n{\r\n    \"productId\":2,\r\n    \"productName\":\"mobile\",\r\n    \"price\":70,\r\n    \"availability\":true\r\n\r\n}\r\n]",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/order/checkout",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"order",
+						"checkout"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Mockservice for payment gatway",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "https://423d9c47-94c4-4bca-a573-aef908a30c97.mock.pstmn.io/pay",
+					"protocol": "https",
+					"host": [
+						"423d9c47-94c4-4bca-a573-aef908a30c97",
+						"mock",
+						"pstmn",
+						"io"
+					],
+					"path": [
+						"pay"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Pay",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n\r\n    \"token\":\"TDOYRT1z8qai3UpLqM4k\",\r\n    \"amount\":120.0,\r\n    \"paymentType\":\"visa\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/gateway/pay",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"gateway",
+						"pay"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
